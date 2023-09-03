@@ -53,7 +53,7 @@ export default {
         <input type="text" v-model="username" class="form-control" placeholder="Username">
       </div>
       <div class="mb-3">
-        <button class="btn btn-success btn-block" @click="doLogin">Login</button>
+        <button class="btn btn-success btn-block" @click="doLogin" style="background-color: #0d6efd;" >Login</button>
       </div>
     </div>
     <ErrorMsg v-if="errormsg" :msg="errormsg"></ErrorMsg>
