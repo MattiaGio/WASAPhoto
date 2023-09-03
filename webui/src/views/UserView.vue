@@ -368,24 +368,46 @@ export default {
 </script>
 
 <template>
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3 sidebar-sticky">
-            <h6
-                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                <span>General</span>
-            </h6>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <RouterLink to="/session" class="nav-link">
-                        <svg class="feather">
-                            <use href="/feather-sprite-v4.29.0.svg#home" />
-                        </svg>
-                        Home
-                    </RouterLink>
-                </li>
-            </ul>
+    <nav id="sidebarMenu" class="col-md-2 d-md-block bg-light sidebar collapse">
+				<div class="position-sticky pt-3 sidebar-sticky">
+    				<h6 class="sidebar-heading d-flex justify-content-center align-items-center px-2 mt-3 mb-1 text-muted text-uppercase" style="font-size: 25px;" >
+        				<span style="text-decoration: underline;">General</span>
+					</h6>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <RouterLink to="/session" class="nav-link d-flex align-items-center">
+                    <svg class="feather">
+                        <use href="/feather-sprite-v4.29.0.svg#home" />
+                    </svg>
+                    <span style="font-size: 20px;">Home</span>
+                </RouterLink>
+            </li>
+            <li class="nav-item">
+                <Router-link :to="`/users/${username}/profile`" class="nav-link d-flex align-items-center" @click="ViewProfile">
+                    <svg class="feather">
+                        <use href="/feather-sprite-v4.29.0.svg#user" />
+                    </svg>
+                    <span style="font-size: 14px;">Profile</span>
+                </Router-link>
+            </li>
+            <li class="nav-item">
+                <RouterLink to="/upload" class="nav-link d-flex align-items-center">
+                    <svg class="feather">
+                        <use href="/feather-sprite-v4.29.0.svg#upload" />
+                    </svg>
+                    <span style="font-size: 14px;">Upload</span>
+                </RouterLink>
+            </li>
+            <li class="nav-item">
+    <Router-link to="/" class="nav-link d-flex align-items-center" @click="doLogout">
+        <div style="border: 2px solid red; padding: 5px; border-radius: 5px;">
+            <span style="font-size: 20px; color: red;">Logout</span>
         </div>
-    </nav>
+    </Router-link>
+</li>
+        </ul>
+    </div>
+</nav>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
         v-if="profile.checkIfBanned == true">
         <div class="alert alert-danger " role="alert">
@@ -401,20 +423,20 @@ export default {
     <div>
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Profile of {{ profile.username }} </h1>
+            <h1 class="h2">Profile of  <span style="color: #8A3FFC;">{{ profile.username }}</span></h1>
             <div v-if="profile.checkIfBanned == false" class="p-4 text-black">
                 <div class="d-flex justify-content-end text-center py-1">
                     <div>
-                        <p class="mb-1 h5">{{ profile.followersCount }}</p>
+                        <p class="mb-1 h5 text-primary">{{ profile.followersCount }}</p>
                         <p class="small text-muted mb-0">Followers</p>
                     </div>
                     <div class="px-3">
-                        <p class="mb-1 h5">{{ profile.followingCount }}</p>
+                        <p class="mb-1 h5 text-success">{{ profile.followingCount }}</p>
                         <p class="small text-muted mb-0">Followings</p>
                     </div>
                     <div>
-                        <p class="mb-1 h5">{{ profile.photoCount }}</p>
-                        <p class="small text-muted mb-0">Photos</p>
+                        <p class="mb-1 h5 text-purple" style="color: #8A3FFC;">{{ profile.photoCount }}</p>
+                        <p class="small text-muted mb-0" >Photos</p>
                     </div>
                 </div>
             </div>
