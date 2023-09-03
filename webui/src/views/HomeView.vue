@@ -339,8 +339,6 @@ export default {
 		
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					<button class="dropdown-item" @click="ViewProfile">Profile</button>
-					<input type="file" accept="image/*" class="dropdown-item" @change="uploadFile" ref="file">
-					<button class="dropdown-item" @click="submitFile">Upload</button>
 					<button class="dropdown-item" @click="doLogout">Logout</button>
 				</div>
 			</div>

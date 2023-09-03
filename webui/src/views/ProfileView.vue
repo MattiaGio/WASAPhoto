@@ -62,6 +62,38 @@ export default {
             await this.userProfile();
             await this.userPhotos();
         },
+        async uploadFile() {
+			this.images = this.$refs.file.files[0]
+			this.submitFile
+		},
+
+        async submitFile() {
+			if (this.images === null) {
+				this.errormsg = "Please select a file to upload."
+			} else {
+				try {
+					let response = await this.$axios.put("/users/" + this.username + "/photo/" + Math.floor(Math.random() * 10000), this.images, {
+						headers: {
+							Authorization: "Bearer " + localStorage.getItem("token")
+						}
+					})
+                    this.refresh();
+					this.profile = response.data
+					this.successmsg = "Photo uploaded successfully."
+				} catch (e) {
+					if (e.response && e.response.status === 400) {
+						this.errormsg = "Form error, please check all fields and try again. If you think that this is an error, write an e-mail to us.";
+						this.detailedmsg = null;
+					} else if (e.response && e.response.status === 500) {
+						this.errormsg = "An internal error occurred. We will be notified. Please try again later.";
+						this.detailedmsg = e.toString();
+					} else {
+						this.errormsg = e.toString();
+						this.detailedmsg = null;
+					}
+				}
+			}
+		},
         async userProfile() {
             try {
                 let response = await this.$axios.get("/users/" + this.username + "/profile", {
@@ -337,21 +369,24 @@ export default {
         </div>
     </div>
 
-    <div class="mb-3" style="text-align: left;">
-        <p class="small mb-0" style="color: black; font-size: 26px;">Change ur username <span style="color: #8A3FFC;">here</span></p>
-    </div>
-    <div class="input-group" style="max-width: 450px;">
+    <div class="mb-3" style="text-align: left; display: flex; justify-content: space-between;">
+    <p class="small mb-0" style="color: black; font-size: 26px;">Change ur username <span style="color: #8A3FFC;">here</span></p>
+    <p class="small mb-0" style="color: black; font-size: 26px;"><span style="color: #0d6efd;">Upload</span> ur photo <span style="color: #8A3FFC;">here</span></p>
+</div>
+
+<div class="mb-3" style="text-align: left; display: flex; justify-content: space-between;">
+    
+    <div class="input-group" style="max-width: 550px; display: flex; justify-content: space-between;">
         <input type="text" id="newUsername" v-model="newUsername" class="form-control text-center"
             placeholder="Insert a new username for your profile..." aria-label="Recipient's username"
             aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="button" @click="changeName">Change username</button>
-        </div>
+        <button class="btn btn-primary" type="button" @click="changeName">Change username</button>
     </div>
-
-
-
-
+    <div class="input-group" style="max-width: 420px; display: flex; justify-content: space-between;">
+        <input type="file" accept="image/*" class="btn btn-outline-primary" @change="uploadFile" ref="file">
+        <button class="btn btn-success" @click="submitFile">Upload</button>
+    </div>
+</div>
 
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
