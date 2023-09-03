@@ -1,11 +1,14 @@
 <script>
 import LogModal from "../components/Logmodal.vue";
+import SuccessMsg from "../components/SuccessMsg.vue"
 
 export default {
-    components: { LogModal },
+    components: { LogModal, SuccessMsg },
     data: function () {
         return {
             errormsg: null,
+            successmsg: null,
+			detailedmsg: null,
             username: localStorage.getItem('username'),
             token: localStorage.getItem('token'),
             newUsername: "",
@@ -64,7 +67,7 @@ export default {
         },
         async uploadFile() {
 			this.images = this.$refs.file.files[0]
-			this.submitFile
+			/*this.submitFile*/
 		},
 
         async submitFile() {
@@ -77,9 +80,10 @@ export default {
 							Authorization: "Bearer " + localStorage.getItem("token")
 						}
 					})
-                    this.refresh();
+                    
 					this.profile = response.data
 					this.successmsg = "Photo uploaded successfully."
+                    this.refresh();
 				} catch (e) {
 					if (e.response && e.response.status === 400) {
 						this.errormsg = "Form error, please check all fields and try again. If you think that this is an error, write an e-mail to us.";
@@ -126,6 +130,7 @@ export default {
                 for (let i = 0; i < this.photoList.photos.length; i++) {
                     this.photoList.photos[i].file = 'data:image/*;base64,' + this.photoList.photos[i].file
                 }
+                
             } catch (e) {
                 if (e.response && e.response.status === 400) {
                     this.errormsg = "Form error, please check all fields and try again. If you think that this is an error, write an e-mail to us.";
@@ -134,7 +139,7 @@ export default {
                     this.errormsg = "An internal error occurred. We will be notified. Please try again later.";
                     this.detailedmsg = e.toString();
                 } else {
-                    this.errormsg = "You haven't posted any photos yet. Go to the home and upload one!";
+                    this.errormsg = "You haven't posted any photos yet. Go to your profile and upload one!";
                     this.detailedmsg = null;
                 }
             }
