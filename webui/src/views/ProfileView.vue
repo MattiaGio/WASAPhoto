@@ -337,8 +337,9 @@ export default {
         </div>
     </div>
 
-    <div class="mb-3 text-center">
-    <p class="small mb-0" style="color: black; font-size: 26px;">Change ur username here</p>
+    <div class="mb-3" style="text-align: left;">
+        <p class="small mb-0" style="color: black; font-size: 26px;">Change ur username <span style="color: #8A3FFC;">here</span></p>
+    </div>
     <div class="input-group" style="max-width: 450px;">
         <input type="text" id="newUsername" v-model="newUsername" class="form-control text-center"
             placeholder="Insert a new username for your profile..." aria-label="Recipient's username"
@@ -347,7 +348,10 @@ export default {
             <button class="btn btn-primary" type="button" @click="changeName">Change username</button>
         </div>
     </div>
-</div>
+
+
+
+
 
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
