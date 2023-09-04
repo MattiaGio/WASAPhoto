@@ -275,6 +275,9 @@ export default {
 		async ViewProfile() {
 			this.$router.push({ path: '/users/' + this.username + '/profile' })
 		},
+		async UploadShortucut() {
+			this.$router.push({ path: '/users/' + this.username + '/upload' })
+		},
 	},
 	mounted() {
 		this.getStream()
@@ -301,7 +304,7 @@ export default {
                 </RouterLink>
             </li>
             <li class="nav-item">
-                <RouterLink to="/upload" class="nav-link d-flex align-items-center">
+                <RouterLink to="`/users/${username}/upload`" class="nav-link d-flex align-items-center" @click="UploadShortucut"> 
                     <svg class="feather">
                         <use href="/feather-sprite-v4.29.0.svg#upload" />
                     </svg>

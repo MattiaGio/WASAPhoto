@@ -309,6 +309,9 @@ export default {
                 }
             }
         },
+        async UploadShortucut() {
+			this.$router.push({ path: '/users/' + this.username + '/upload' })
+		},
     },
     mounted() {
         this.userProfile()
@@ -333,7 +336,7 @@ export default {
                 </RouterLink>
             </li>
             <li class="nav-item">
-                <RouterLink to="/upload" class="nav-link d-flex align-items-center">
+                <RouterLink to="`/users/${username}/upload`" class="nav-link d-flex align-items-center" @click="UploadShortucut"> 
                     <svg class="feather">
                         <use href="/feather-sprite-v4.29.0.svg#upload" />
                     </svg>
@@ -389,7 +392,7 @@ export default {
     </div>
     <div class="input-group" style="max-width: 420px; display: flex; justify-content: space-between;">
         <input type="file" accept="image/*" class="btn btn-outline-primary" @change="uploadFile" ref="file">
-        <button class="btn btn-success" @click="submitFile">Upload</button>
+        <button class="btn btn-success" style="background-color: #8A3FFC;" @click="submitFile">Upload</button>
     </div>
 </div>
 
