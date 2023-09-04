@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import UserView from '../views/UserView.vue'
+import UploadView from '../views/UploadView.vue'
 import ErorrView from '../views/404view.vue'
 
 const router = createRouter({
@@ -12,6 +13,7 @@ const router = createRouter({
 		{path: '/session', component: HomeView},
 		{path: '/users/:username/profile', component: ProfileView},
 		{path: '/users/:username/view', component: UserView},
+		{path: '/users/:username/upload', component: UploadView},
 		{path: '/:catchAll(.*)', component: ErorrView}
 	]
 })
