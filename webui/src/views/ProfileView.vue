@@ -83,6 +83,7 @@ export default {
                     
 					this.profile = response.data
 					this.successmsg = "Photo uploaded successfully."
+                    this.errormsg = null;
                     this.refresh();
 				} catch (e) {
 					if (e.response && e.response.status === 400) {
@@ -401,6 +402,7 @@ export default {
     </div>
 
     <ErrorMsg v-if="errormsg" :msg="errormsg"></ErrorMsg>
+    <SuccessMsg v-if="successmsg" :msg="successmsg"></SuccessMsg>
 
     <LogModal id="logviewer" :log="photoComments" :token="token"></LogModal>
 
