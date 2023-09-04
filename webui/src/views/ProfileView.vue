@@ -379,7 +379,7 @@ export default {
     </div>
 
     <div class="mb-3" style="text-align: left; display: flex; justify-content: space-between;">
-    <p class="small mb-0" style="color: black; font-size: 26px;">Change ur username <span style="color: #8A3FFC;">here</span></p>
+    <p class="small mb-0" style="color: black; font-size: 26px;"><span style="color: #0d6efd;">Change</span> ur username <span style="color: #8A3FFC;">here</span></p>
     <p class="small mb-0" style="color: black; font-size: 26px;"><span style="color: #0d6efd;">Upload</span> ur photo <span style="color: #8A3FFC;">here</span></p>
 </div>
 
@@ -391,7 +391,7 @@ export default {
             aria-describedby="basic-addon2">
         <button class="btn btn-primary" type="button" @click="changeName">Change username</button>
     </div>
-    <div class="input-group" style="max-width: 420px; display: flex; justify-content: space-between;">
+    <div class="input-group" style="max-width: 391px; display: flex; justify-content: space-between;">
         <input type="file" accept="image/*" class="btn btn-outline-primary" @change="uploadFile" ref="file">
         <button class="btn btn-success" style="background-color: #8A3FFC;" @click="submitFile">Upload</button>
     </div>
