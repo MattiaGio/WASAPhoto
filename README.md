@@ -132,11 +132,11 @@ This is the first view when you approch the site. You have to insert the usernam
 
 # Homepage View
 This is the homepage of the site where you can access your profile, search other user on WASAPhoto, access an upload shortcut, logout and check out the stream of the other users that you follow.
-(https://ibb.co/1QKgBpz)
+![Homepage View](https://i.ibb.co/3dW3V8R/homepage.jpg)
 
 # Profile View
 This is the view of the profile. Here you can upload the photos on your profile, change your username see and delete the photo that you have uploaded.
-(https://ibb.co/pJt2Tgm)
+![Profile View](https://i.ibb.co/GcK7DXh/profile-view.jpg)
 
 ## Known issues
 
