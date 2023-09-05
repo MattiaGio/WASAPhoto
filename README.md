@@ -144,6 +144,11 @@ This is the view of the profile. Here you can upload the photos on your profile,
 
 ![Profile View](https://i.ibb.co/GcK7DXh/profile-view.jpg)
 
+# Picture Box
+On the left the picture box shown on the strem section. On the right the picture box shown on the profile view.
+
+![Picture Box in stream section](https://i.ibb.co/4N6ZgDj/picture-in-stream.jpg)     ![Picture Box in the profile view](https://i.ibb.co/cCchvQg/picture-in-profile.jpg)
+
 ## Known issues
 
 ### Apple M1 / ARM: `failed to load config from`...
