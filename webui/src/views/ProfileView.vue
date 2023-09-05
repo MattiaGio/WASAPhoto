@@ -73,7 +73,7 @@ export default {
         },
         async uploadFile() {
 			this.images = this.$refs.file.files[0]
-			/*this.submitFile*/
+			/*this.submitFile();*/
 		},
 
         async submitFile() {
@@ -203,7 +203,7 @@ export default {
             }
 
         },
-        async sendComment(username, photoid,comment) {
+        async sendComment(username, photoid, comment) {
             if (comment === "") {
                 this.errormsg = "Emtpy comment field."
             } else {
@@ -440,11 +440,11 @@ export default {
 
             <div class="input-group mb-3">
                 <input type="text" id="comment" v-model="photo.comment" class="form-control" placeholder="Comment!"
-                            aria-describedby="basic-addon2">
+                    aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button"
-                                    @click="sendComment(username, photo.id, comment)">Send</button>
-                </div>
+                                    @click="sendComment(username, photo.id, photo.comment)">Send</button>
+                </div>      
             </div>
 
             <div class="btn-group" role="group">
@@ -458,7 +458,7 @@ export default {
 
             <p></p>
             <button type="button" class="btn btn-sm btn-outline-danger ml-auto mt-2" @click="confirmDelete(photo.id)">Delete</button>
-            
+
         </div>
         </div>
     </div>
