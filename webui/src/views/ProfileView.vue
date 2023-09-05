@@ -322,6 +322,12 @@ export default {
         async ViewProfile() {
 			this.$router.push({ path: '/users/' + this.username + '/profile' })
 		},
+        async confirmDelete(photoid) {
+            if (confirm("Are you sure you want to delete this photo?")) {
+                // Se l'utente conferma, chiama la funzione deletePhoto per eliminare la foto
+                this.deletePhoto(photoid);
+            }
+        },
     },
     mounted() {
         this.userProfile()
@@ -449,6 +455,10 @@ export default {
                     @click="likePhoto(username, photo.id)">Like</button>
             </div>
             </div>
+
+            <p></p>
+            <button type="button" class="btn btn-sm btn-outline-danger ml-auto mt-2" @click="confirmDelete(photo.id)">Delete</button>
+            
         </div>
         </div>
     </div>
