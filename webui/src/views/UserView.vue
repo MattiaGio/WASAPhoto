@@ -461,48 +461,48 @@ export default {
 
         <LogModal id="logviewer" :log="photoComments" :token="token"></LogModal>
         <div v-if="profile.checkIfBanned == false" class="row">
-            <div class="col-md-4" v-for="photo in photoList.photos" :key="photo.id">
-                <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" :src=photo.file alt="Card image cap">
-                    <div class="card-body">
-                        <RouterLink :to="'/users/' + profile.username + '/view'" class="nav-link">
-                            <button type="button" class="btn btn-outline-primary">{{ profile.username }}</button>
-                        </RouterLink>
-                        <div
-                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="card-text">Likes : {{ photo.likesCount }}</p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="card-text">Comments : {{ photo.commentsCount }}</p>
-                        </div>
-                        <p class="card-text">Uploaded on : {{ photo.date }}</p>
-                        <div class="input-group mb-3">
-                            <input type="text" id="comment" v-model="photo.comment" class="form-control"
-                                placeholder="Comment!" aria-label="Recipient's username"
-                                aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button"
-                                    @click="sendComment(profile.username, photo.id, photo.comment)">Send</button>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-dark"
-                                    @click="openLog(profile.username, photo.id)">Comments</button>
-                                <button type="button" v-if="photo.likeStatus == false" class="btn btn-primary"
-                                    @click="likePhoto(profile.username, photo.id)">Like</button>
-                                <button type="button" v-if="photo.likeStatus == true" class="btn btn-danger"
-                                    @click="deleteLike(profile.username, photo.id)">Unlike</button>
-                            </div>
-                        </div>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-4" v-for="photo in photoList.photos" :key="photo.id">
+                    <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" :src="photo.file" alt="Card image">
+                        <div class="card-body">
+                            <router-link :to="'/users/' + profile.username + '/view'" class="text-decoration-none">
+                                <h5 class="card-title">{{ profile.username }}</h5>
+                            </router-link>
+
+                <hr>
+                <p class="card-text">Likes: {{ photo.likesCount }}</p>
+                <p class="card-text">Comments: {{ photo.commentsCount }}</p>
+                <p class="card-text">Uploaded on: {{ photo.date }}</p>
+
+                <div class="input-group mb-3">
+                                <input type="text" id="comment" v-model="photo.comment" class="form-control"
+                                    placeholder="Comment!" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button"
+                                        @click="sendComment(profile.username, photo.id, comment)">Send</button>
+
                     </div>
                 </div>
+
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-dark" @click="openLog(profile.username, photo.id)">View Comments</button>
+                    <button type="button" v-if="photo.likeStatus == true" class="btn btn-danger"
+                        @click="deleteLike(profile.username, photo.id)">Unlike</button>
+                    <button type="button" v-if="photo.likeStatus == false" class="btn btn-primary"
+                        @click="likePhoto(profile.username, photo.id)">Like</button>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
 
     </div>
+
+    </div>
+</div>
 
 </template>
 
