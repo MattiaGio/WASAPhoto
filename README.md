@@ -128,14 +128,20 @@ docker run -it --rm -p 8080:80 wasa-photos-frontend:latest
 ## Sites Views
 # Login View
 This is the first view when you approch the site. You have to insert the username to access the site.
+
+
 ![Login Screenshot](https://i.ibb.co/xhd773t/loginview.jpg)
 
 # Homepage View
 This is the homepage of the site where you can access your profile, search other user on WASAPhoto, access an upload shortcut, logout and check out the stream of the other users that you follow.
+
+
 ![Homepage View](https://i.ibb.co/3dW3V8R/homepage.jpg)
 
 # Profile View
 This is the view of the profile. Here you can upload the photos on your profile, change your username see and delete the photo that you have uploaded.
+
+
 ![Profile View](https://i.ibb.co/GcK7DXh/profile-view.jpg)
 
 ## Known issues
