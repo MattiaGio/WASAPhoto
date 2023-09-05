@@ -128,7 +128,7 @@ docker run -it --rm -p 8080:80 wasa-photos-frontend:latest
 ## Sites Views
 # Login View
 This is the first view when you approch the site. You have to insert the username to access the site.
-[!(https://ibb.co/8Mt77XL)](https://ibb.co/8Mt77XL)
+![Login Screenshot](https://ibb.co/8Mt77XL)
 
 # Homepage View
 This is the homepage of the site where you can access your profile, search other user on WASAPhoto, access an upload shortcut, logout and check out the stream of the other users that you follow.
