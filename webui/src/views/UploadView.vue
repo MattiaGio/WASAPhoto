@@ -67,7 +67,7 @@ export default {
         },
         async uploadFile() {
 			this.images = this.$refs.file.files[0]
-			/*this.submitFile*/
+			/*this.submitFile();*/
 		},
 
         async submitFile() {
@@ -173,7 +173,6 @@ export default {
         </div>
 
 
-        <!-- Mostra il messaggio di successo solo se successmsg è definito -->
         <div v-if="successmsg" class="mt-3 alert alert-success">
             {{ successmsg }}
             <router-link to="/users/{{ username }}/profile">Go to your profile</router-link> to checkout your latest WASAUpload

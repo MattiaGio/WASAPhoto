@@ -482,7 +482,7 @@ export default {
                                     aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button"
-                                        @click="sendComment(profile.username, photo.id, comment)">Send</button>
+                                        @click="sendComment(profile.username, photo.id, photo.comment)">Send</button>
 
                     </div>
                 </div>
