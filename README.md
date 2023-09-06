@@ -139,6 +139,9 @@ Frontend
 docker run -it --rm -p 8080:80 wasa-photos-frontend:latest
 ```
 # Sites Views
+The following screenshots show how the site will look like.
+
+
 ## Login View
 This is the first view when you approch the site. You have to insert the username to access the site.
 
