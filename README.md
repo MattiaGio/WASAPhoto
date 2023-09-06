@@ -1,4 +1,4 @@
- ## WASAPhoto
+ # WASAPhoto
 
  </div> 
 <div align="center">
@@ -23,7 +23,7 @@ This project was divided in four parts:
 4. create a Docker container image for deployment
 
 
-## Project Description
+# Project Description
 Each user will be presented with a stream of photos (images) in reverse chronological order, with
 information about when each photo was uploaded (date and time) and how many likes and comments
 it has. The stream is composed by photos from “following” (other users that the user follows). Users
@@ -37,7 +37,7 @@ Users can change their usernames, upload photos, remove photos, and follow/unfol
 Removal of an image will also remove likes and comments.
 A user can search other user profiles via username.
 
-## Project structure
+# Project structure
 
 * `cmd/` contains all executables; Go programs here should only do "executable-stuff", like reading options from the CLI/env, etc.
 	* `cmd/healthcheck` is an example of a daemon for checking the health of servers daemons; useful when the hypervisor is not providing HTTP readiness/liveness probes (e.g., Docker engine)
@@ -57,7 +57,7 @@ A user can search other user profiles via username.
 Other project files include:
 * `open-npm.sh` starts a new (temporary) container using `node:lts` image for safe web frontend development (you don't want to use `npm` in your system, do you?)
 
-## Go vendoring
+# Go vendoring
 
 This project uses [Go Vendoring](https://go.dev/ref/mod#vendoring). You must use `go mod vendor` after changing some dependency (`go get` or `go mod tidy`) and add all files under `vendor/` directory in your commit.
 
@@ -66,11 +66,11 @@ For more information about vendoring:
 * https://go.dev/ref/mod#vendoring
 * https://www.ardanlabs.com/blog/2020/04/modules-06-vendoring.html
 
-## Node/NPM vendoring
+# Node/NPM vendoring
 
 This repository contains the `webui/node_modules` directory with all dependencies for Vue.JS. You should commit the content of that directory and both `package.json` and `package-lock.json`.
 
-## How to set up a new project from this template
+# How to set up a new project from this template
 
 You need to:
 
@@ -82,7 +82,7 @@ You need to:
 * Update the code in `run()` function (`cmd/webapi/main.go`) to connect to databases or external resources
 * Write API code inside `service/api`, and create any further package inside `service/` (or subdirectories)
 
-## How to BUILD
+# How to BUILD
 
 If you're not using the WebUI, or if you don't want to embed the WebUI into the final executable, then in one terminal:
 
@@ -101,7 +101,7 @@ exit
 go build -tags webui ./cmd/webapi/
 ```
 
-## How to RUN (in development mode)
+# How to RUN (in development mode)
 
 You can launch the backend only using:
 
@@ -118,8 +118,8 @@ npm run dev
 ```
 
 
-## Deployment
-# How to BUILD the containter images
+# Deployment
+## How to BUILD the containter images
 Backend
 ```shell
 docker build -t wasa-photos-backend:latest -f Dockerfile.backend .
@@ -129,7 +129,7 @@ Frontend
 docker build -t wasa-photos-frontend:latest -f Dockerfile.frontend .
 ```
 
-# How to RUN the container images
+## How to RUN the container images
 Backend
 ```shell
 docker run -it --rm -p 3000:3000 wasa-photos-backend:latest
@@ -138,26 +138,26 @@ Frontend
 ```shell
 docker run -it --rm -p 8080:80 wasa-photos-frontend:latest
 ```
-## Sites Views
-# Login View
+# Sites Views
+## Login View
 This is the first view when you approch the site. You have to insert the username to access the site.
 
 
 ![Login Screenshot](https://i.ibb.co/xhd773t/loginview.jpg)
 
-# Homepage View
+## Homepage View
 This is the homepage of the site where you can access your profile, search other user on WASAPhoto, access an upload shortcut, logout and check out the stream of the other users that you follow.
 
 
 ![Homepage View](https://i.ibb.co/3dW3V8R/homepage.jpg)
 
-# Profile View
+## Profile View
 This is the view of the profile. Here you can upload the photos on your profile, change your username see and delete the photo that you have uploaded.
 
 
 ![Profile View](https://i.ibb.co/GcK7DXh/profile-view.jpg)
 
-# Picture Box
+## Picture Box
 On the left the picture box shown on the strem section. On the right the picture box shown on the profile view.
 
 ![Picture Box in stream section](https://i.ibb.co/4N6ZgDj/picture-in-stream.jpg)   		  ![Picture Box in the profile view](https://i.ibb.co/cCchvQg/picture-in-profile.jpg)
