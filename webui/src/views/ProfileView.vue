@@ -426,41 +426,41 @@ export default {
     <div class="container mt-4">
             <div class="row">
                 <div class="col-md-4" v-for="photo in photoList.photos" :key="photo.id">
-                <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" :src="photo.file" alt="Card image">
-                    <div class="card-body">
-                        <router-link :to="'/users/' + profile.username + '/view'" class="text-decoration-none">
-                            <h5 class="card-title">{{ profile.username }}</h5>
-                        </router-link>
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top" :src="photo.file" alt="Card image">
+                            <div class="card-body">
+                                <router-link :to="'/users/' + profile.username + '/view'" class="text-decoration-none">
+                                    <h5 class="card-title">{{ profile.username }}</h5>
+                                </router-link>
 
-            <hr>
-            <p class="card-text">Likes: {{ photo.likesCount }}</p>
-            <p class="card-text">Comments: {{ photo.commentsCount }}</p>
-            <p class="card-text">Uploaded on: {{ photo.date }}</p>
+                                <hr>
+                                <p class="card-text">Likes: {{ photo.likesCount }}</p>
+                                <p class="card-text">Comments: {{ photo.commentsCount }}</p>
+                                <p class="card-text">Uploaded on: {{ photo.date }}</p>
 
-            <div class="input-group mb-3">
-                <input type="text" id="comment" v-model="photo.comment" class="form-control" placeholder="Comment!"
-                    aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button"
-                                    @click="sendComment(username, photo.id, photo.comment)">Send</button>
-                </div>      
+                            <div class="input-group mb-3">
+                                <input type="text" id="comment" v-model="photo.comment" class="form-control" placeholder="Comment!"
+                                    aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button"
+                                                    @click="sendComment(username, photo.id, photo.comment)">Send</button>
+                                            </div>      
+                            </div>
+
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-dark" @click="openLog(username, photo.id)">View Comments</button>
+                                <button type="button" v-if="photo.likeStatus == true" class="btn btn-danger"
+                                    @click="deleteLike(username, photo.id)">Unlike</button>
+                                <button type="button" v-if="photo.likeStatus == false" class="btn btn-primary"
+                                    @click="likePhoto(username, photo.id)">Like</button>
+                            </div>
+                    </div>
+
+                    <p></p>
+                    <button type="button" class="btn btn-sm btn-outline-danger ml-auto mt-2" @click="confirmDelete(photo.id)">Delete</button>
+
+                </div>
             </div>
-
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-dark" @click="openLog(username, photo.id)">View Comments</button>
-                <button type="button" v-if="photo.likeStatus == true" class="btn btn-danger"
-                    @click="deleteLike(username, photo.id)">Unlike</button>
-                <button type="button" v-if="photo.likeStatus == false" class="btn btn-primary"
-                    @click="likePhoto(username, photo.id)">Like</button>
-            </div>
-            </div>
-
-            <p></p>
-            <button type="button" class="btn btn-sm btn-outline-danger ml-auto mt-2" @click="confirmDelete(photo.id)">Delete</button>
-
-        </div>
-        </div>
     </div>
 </div>
 
