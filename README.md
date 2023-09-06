@@ -138,6 +138,8 @@ Frontend
 ```shell
 docker run -it --rm -p 8080:80 wasa-photos-frontend:latest
 ```
+After doing that you can open any browser and go to www.localhost:8080/ to check out the site.
+
 # Sites Views
 The following screenshots show how the site will look like.
 
