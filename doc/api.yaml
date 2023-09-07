@@ -3,22 +3,20 @@ info:
   description: |-
 
 
-    Keep in touch with your friends by sharing photos of special moments. 
-    Upload your photos directly from your PC, and they will be visible to everyone following you.
-    Other user can interact with your picture, leaving like and comments. The comments can be removed only
-    by the author.
+    Keep in touch with your friends by sharing photos of special moments.
+    Easily upload your pictures from your computer, making them visible to all your followers. 
+    Other users can engage with your photos by liking and leaving comments, 
+    with only the author having the ability to remove comments. 
 
-    Users can ban other users. In order to not be able to show any information
-    about themeselfs to some users if they don't want. Bans can be removed at any point.
+    Users also have the option to ban other users, ensuring that certain individuals cannot access
+    their information if they choose. Bans can be lifted at any time.
+    Each user has their personal profile. Photos are shown in reverse chronological order.
 
-    Users will have their own personal profiles. with their photos (in
-    reverse chronological order).
-    Each user can change his/her own username, upload photos, remove photos, and follow/unfollow
-    other users. Removal of a photo will also remove likes and comments.
+    Users can modify their usernames, upload or delete photos, and follow or unfollow other users. 
+    Deleting a photo will also remove associated likes and comments.
+    User profiles can be conveniently searched by their usernames.
 
-    Users profiles can be searched via username.
-
-    The login is perfomed by specifying the username.
+    The login process involves specifying your username for authentication.
   
   title: WASAPhoto API
   version: 4.0.0
@@ -75,7 +73,7 @@ paths:
       tags: ["User"]
       summary: Set username
       description: |-
-        Set a new username.s
+        Set a new username.
       operationId: setMyUserName
       requestBody:
         description: User username
@@ -959,6 +957,9 @@ components:
           pattern: '^.*?$'
           minLength: 1
           maxLength: 40  
+
+
+          
   parameters:
    
     username:
