@@ -483,9 +483,9 @@ components:
       type: http
       scheme: bearer
   responses: 
-    UnauthorizedError:
+    UnauthorizedError: #* 401
       description: Access token is missing or invalid
-    BadRequest:
+    BadRequest: #*400
       description: The request was not compliant with the documentation (eg. missing fields, etc).
     InternalServerError:
       description: The server encountered an internal error. Further info in server logs.
@@ -959,7 +959,7 @@ components:
           maxLength: 40  
 
 
-          
+
   parameters:
    
     username:
