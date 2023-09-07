@@ -119,6 +119,9 @@ npm run dev
 
 
 # Deployment
+First you have to set your self in the directory where you have pulled/downloaded the project.
+
+
 ## How to BUILD the containter images
 Backend
 ```shell
